@@ -1,5 +1,6 @@
 USE hospital;
 
+DROP PROCEDURE IF EXISTS size;
 DROP PROCEDURE IF EXISTS limpaTudo;
 DROP PROCEDURE IF EXISTS removePaciente;
 DROP PROCEDURE IF EXISTS adicionaPaciente;
@@ -19,6 +20,17 @@ DROP PROCEDURE IF EXISTS numeroPacientesEspecialidade;
 DROP PROCEDURE IF EXISTS medicacaoPaciente;
 DROP PROCEDURE IF EXISTS pacientesExame;
 
+-- size: Calcula o tamanho da base de dados.
+
+delimiter &&
+CREATE PROCEDURE size()
+BEGIN
+	SELECT table_schema as 'Database', SUM(data_length + index_length) / (1024 * 1024) AS 'Size(MB)'
+    FROM information_schema.TABLES
+    WHERE table_schema = 'Hospital'
+    GROUP BY table_schema;
+END &&
+    
 -- limpaTudo: Limpa a base de dados toda
 
 delimiter &&
