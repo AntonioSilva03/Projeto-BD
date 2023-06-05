@@ -16,7 +16,7 @@ DROP PROCEDURE IF EXISTS getMedicosEspecialidade;
 DROP PROCEDURE IF EXISTS getConsultas;
 DROP PROCEDURE IF EXISTS consultasPaciente;
 DROP PROCEDURE IF EXISTS historicoMedicoPaciente;
-DROP PROCEDURE IF EXISTS numeroPacientesEspecialidade;
+DROP PROCEDURE IF EXISTS numeroConsultasEspecialidade;
 DROP PROCEDURE IF EXISTS medicacaoPaciente;
 DROP PROCEDURE IF EXISTS pacientesExame;
 
@@ -191,12 +191,12 @@ END &&
 -- numeroPacientesEspecialidade: Devolve o numero de pacientes de uma especialidade
 
 delimiter &&
-CREATE PROCEDURE numeroPacientesEspecialidade()
+CREATE PROCEDURE numeroConsultasEspecialidade()
 BEGIN
 	SELECT e.nome AS Especialidade, COUNT(*) AS Contagem -- Seleciona todas as especialidades.
 	FROM Medico m
 	INNER JOIN Especialidade e ON m.idEspecialidade = e.identificador -- Junta os médicos à sua especialidade.
-	INNER JOIN Consulta c ON m.identificador = c.idMedico -- 
+	INNER JOIN Consulta c ON m.identificador = c.idMedico
 	GROUP BY e.nome;
 END &&
 
