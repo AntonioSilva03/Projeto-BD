@@ -27,7 +27,6 @@ def import_data(file_path, table_name):
         lines = file.readlines()
         lines = [line.strip(',') for line in lines]
         query = f"INSERT INTO {table_name} VALUES {''.join(lines)}"
-        print(query)
         cursor.execute(query)
         connection.commit()
 
