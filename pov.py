@@ -14,8 +14,8 @@ files = [
     {'name': 'Medico.txt', 'table': 'Medico'},
     {'name': 'Consulta.txt', 'table': 'Consulta'},
     {'name': 'Medicamentos.txt', 'table': 'Medicamentos'},
-    {'name': 'Exames.txt', 'table': 'Exames'},
     {'name': 'Inventario.txt', 'table': 'Inventario'},
+    {'name': 'Exames.txt', 'table': 'Exames'},
     {'name': 'HistorialMedico.txt', 'table': 'HistorialMedico'},
 ]
 

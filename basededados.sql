@@ -63,16 +63,18 @@ CREATE TABLE IF NOT EXISTS Medicamentos(
     nome VARCHAR(100)
 );
 
+CREATE TABLE IF NOT EXISTS Inventario(
+	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100)
+);
+
 CREATE TABLE IF NOT EXISTS Exames(
 	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
     descricao VARCHAR(1000),
-    idPaciente INTEGER
-);
-
-CREATE TABLE IF NOT EXISTS Inventario(
-	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100)
+    idPaciente INTEGER,
+    idInventario INT,
+    FOREIGN KEY (idInventario) REFERENCES Inventario(identificador) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS HistorialMedico(
