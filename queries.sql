@@ -19,6 +19,7 @@ DROP PROCEDURE IF EXISTS historicoMedicoPaciente;
 DROP PROCEDURE IF EXISTS numeroConsultasEspecialidade;
 DROP PROCEDURE IF EXISTS medicacaoPaciente;
 DROP PROCEDURE IF EXISTS pacientesExame;
+DROP VIEW consultasFuturas;
 
 -- size: Calcula o tamanho da base de dados.
 
@@ -221,3 +222,10 @@ BEGIN
     JOIN Exames e ON p.identificador = e.idPaciente -- Junta os pacientes aos seus exames.
     WHERE e.nome = tipo_exame; -- Filtra apenas os exames do tipo pedido.
 END &&
+
+CREATE VIEW consultasFuturas AS
+SELECT C.identificador, C.data_consulta, P.nome AS Paciente, P.telefone AS Telefone
+FROM Consulta C
+JOIN Paciente P ON C.idPaciente = P.identificador
+WHERE C.data_consulta >= CURDATE()
+ORDER BY C.data_consulta ASC;
