@@ -52,10 +52,8 @@ CREATE TABLE IF NOT EXISTS Medico(
 
 CREATE TABLE IF NOT EXISTS Consulta(
 	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
-    idEspecialidade INTEGER,
     idMedico INTEGER,
     idPaciente INTEGER,
-    FOREIGN KEY (idEspecialidade) REFERENCES Especialidade(identificador) ON DELETE CASCADE,
     FOREIGN KEY (idMedico) REFERENCES Medico(identificador) ON DELETE CASCADE,
     FOREIGN KEY (idPaciente) REFERENCES Paciente(identificador) ON DELETE CASCADE
 );

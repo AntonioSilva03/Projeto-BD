@@ -14,7 +14,6 @@ DROP PROCEDURE IF EXISTS getMedicos;
 DROP PROCEDURE IF EXISTS getMedicosEspecialidade;
 DROP PROCEDURE IF EXISTS getConsultas;
 DROP PROCEDURE IF EXISTS consultasPaciente;
-DROP PROCEDURE IF EXISTS consultasEspecialidade;
 DROP PROCEDURE IF EXISTS historicoMedicoPaciente;
 DROP PROCEDURE IF EXISTS numeroPacientesEspecialidade;
 DROP PROCEDURE IF EXISTS medicacaoPaciente;
@@ -163,21 +162,9 @@ BEGIN
 SELECT c.identificador AS Consulta, m.nome AS Médico, e.nome AS Especialidade -- Seleciona todas as consultas, médicos e especialidades.
 FROM Consulta c
 INNER JOIN Medico m ON c.idMedico = m.identificador -- Junta os médicos às suas consultas.
-INNER JOIN Especialidade e ON c.idEspecialidade = e.identificador -- Junta as especialidades às suas consultas.
+INNER JOIN Especialidade e ON m.idEspecialidade = e.identificador -- Junta as especialidades às suas consultas.
 WHERE c.idPaciente = paciente; -- Filtra para mostrar apenas as consultas do paciente pedido.
 END &&
-
--- consultasEspecialidade: Devolve a quantidade de consultas de cada especialidade
-
-delimiter &&
-CREATE PROCEDURE consultasEspecialidade()
-BEGIN
-    SELECT E.nome AS Especialidade, COUNT(*) AS Quantidade -- Seleciona todas as especialidades.
-    FROM Consulta AS C
-    JOIN Especialidade AS E ON C.idEspecialidade = E.identificador -- Conta as consultas de cada especialidade.
-    GROUP BY E.nome; -- Junta por nome de especialidade.
-END &&
-
 
 -- historicoMedicoPaciente: Devolve o historico médico de um paciente
 
@@ -209,7 +196,7 @@ BEGIN
     SELECT H.medicamentos -- Seleciona todos os medicamentos.
     FROM HistorialMedico AS H
     JOIN Paciente AS P ON H.idPaciente = P.identificador -- Junta os medicamentos a cada paciente.
-    WHERE P.nome = id_paciente; -- Filtra apenas o paciente pedido.
+    WHERE P.identificador = id_paciente; -- Filtra apenas o paciente pedido.
 END &&
 
 -- pacientesExame: Devolve os pacientes que fizeram um exame específico
