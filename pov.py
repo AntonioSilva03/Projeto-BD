@@ -17,6 +17,7 @@ files = [
     {'name': 'Inventario.txt', 'table': 'Inventario'},
     {'name': 'Exames.txt', 'table': 'Exames'},
     {'name': 'HistorialMedico.txt', 'table': 'HistorialMedico'},
+    {'name': 'ConsultaHistorial.txt', 'table': 'ConsultaHistorial'},
 ]
 
 connection = mysql.connector.connect(**config)

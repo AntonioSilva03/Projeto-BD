@@ -2,6 +2,7 @@ CREATE SCHEMA IF NOT EXISTS hospital;
 
 USE hospital;
 
+DROP TABLE IF EXISTS ConsultaHistorial;
 DROP TABLE IF EXISTS HistorialMedico;
 DROP TABLE IF EXISTS Medicamentos;
 DROP TABLE IF EXISTS Exames;
@@ -88,4 +89,12 @@ CREATE TABLE IF NOT EXISTS HistorialMedico(
     medicamentos VARCHAR(100),
     diagnosticos VARCHAR(100),
     FOREIGN KEY (idPaciente) REFERENCES Paciente(identificador) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS ConsultaHistorial(
+	idConsulta INT,
+    FOREIGN KEY (idConsulta) REFERENCES Consulta(identificador) ON DELETE CASCADE,
+    idHistorial INT,
+    FOREIGN KEY (idHistorial) REFERENCES HistorialMedico(identificador) ON DELETE CASCADE,
+    atualizacao VARCHAR(100)
 );
