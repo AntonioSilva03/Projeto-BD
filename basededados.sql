@@ -3,13 +3,13 @@ CREATE SCHEMA IF NOT EXISTS hospital;
 USE hospital;
 
 DROP TABLE IF EXISTS HistorialMedico;
+DROP TABLE IF EXISTS Medicamentos;
+DROP TABLE IF EXISTS Exames;
 DROP TABLE IF EXISTS Consulta;
 DROP TABLE IF EXISTS Paciente;
 DROP TABLE IF EXISTS Medico;
 DROP TABLE IF EXISTS Especialidade;
 DROP TABLE IF EXISTS SeguroSaude;
-DROP TABLE IF EXISTS Medicamentos;
-DROP TABLE IF EXISTS Exames;
 DROP TABLE IF EXISTS Inventario;
 
 CREATE TABLE IF NOT EXISTS SeguroSaude(
@@ -61,7 +61,9 @@ CREATE TABLE IF NOT EXISTS Consulta(
 
 CREATE TABLE IF NOT EXISTS Medicamentos(
 	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100)
+    nome VARCHAR(100),
+    idConsulta INT,
+    FOREIGN KEY (idConsulta) REFERENCES Consulta(identificador) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Inventario(
@@ -75,7 +77,9 @@ CREATE TABLE IF NOT EXISTS Exames(
     descricao VARCHAR(1000),
     idPaciente INTEGER,
     idInventario INT,
-    FOREIGN KEY (idInventario) REFERENCES Inventario(identificador) ON DELETE CASCADE
+    idConsulta INT,
+    FOREIGN KEY (idInventario) REFERENCES Inventario(identificador) ON DELETE CASCADE,
+    FOREIGN KEY (idConsulta) REFERENCES Consulta(identificador) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS HistorialMedico(
