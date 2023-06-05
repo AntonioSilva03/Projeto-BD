@@ -12,6 +12,13 @@ DROP TABLE IF EXISTS Medicamentos;
 DROP TABLE IF EXISTS Exames;
 DROP TABLE IF EXISTS Inventario;
 
+CREATE TABLE IF NOT EXISTS SeguroSaude(
+	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
+    seguradora VARCHAR(100),
+    validade date,
+    percentgem FLOAT
+);
+
 CREATE TABLE IF NOT EXISTS Paciente(
 	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
@@ -21,7 +28,9 @@ CREATE TABLE IF NOT EXISTS Paciente(
     morada VARCHAR(100),
     telefone INTEGER,
     email VARCHAR(100),
-    emergencia INTEGER
+    emergencia INTEGER,
+    id_seguro INT,
+    FOREIGN KEY (id_seguro) REFERENCES SeguroSaude(identificador)
 );
 
 CREATE TABLE IF NOT EXISTS Especialidade(
@@ -49,14 +58,6 @@ CREATE TABLE IF NOT EXISTS Consulta(
     FOREIGN KEY (idEspecialidade) REFERENCES Especialidade(identificador) ON DELETE CASCADE,
     FOREIGN KEY (idMedico) REFERENCES Medico(identificador) ON DELETE CASCADE,
     FOREIGN KEY (idPaciente) REFERENCES Paciente(identificador) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS SeguroSaude(
-	identificador INTEGER PRIMARY KEY AUTO_INCREMENT,
-    seguradora VARCHAR(100),
-    validade date,
-    percentgem FLOAT,
-    idPaciente INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS Medicamentos(

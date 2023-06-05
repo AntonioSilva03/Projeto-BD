@@ -3,9 +3,13 @@ USE hospital;
 DROP PROCEDURE IF EXISTS limpaTudo;
 DROP PROCEDURE IF EXISTS removePaciente;
 DROP PROCEDURE IF EXISTS adicionaPaciente;
+DROP PROCEDURE IF EXISTS mudarMoradaPaciente;
+DROP PROCEDURE IF EXISTS mudarContactoPaciente;
 DROP PROCEDURE IF EXISTS getPacientes;
 DROP PROCEDURE IF EXISTS removeMedico;
 DROP PROCEDURE IF EXISTS adicionaMedico;
+DROP PROCEDURE IF EXISTS mudarMoradaMedico;
+DROP PROCEDURE IF EXISTS mudarContactoMedico;
 DROP PROCEDURE IF EXISTS getMedicos;
 DROP PROCEDURE IF EXISTS getMedicosEspecialidade;
 DROP PROCEDURE IF EXISTS getConsultas;
@@ -56,6 +60,26 @@ BEGIN
     VALUES (last_id, '', ''); -- Insere o historial médico vazio na lista.
 END &&
 
+-- mudarMoradaPaciente: Alterar morada do paciente
+
+delimiter &&
+CREATE PROCEDURE mudarMoradaPaciente(IN id_paciente INT, IN nova_morada VARCHAR(100))
+BEGIN
+	UPDATE Paciente
+    SET Morada = nova_morada
+    WHERE identificador = id_paciente;
+END &&
+
+-- mudarContactoPaciente: Alterar contacto do paciente
+
+delimiter &&
+CREATE PROCEDURE mudarContactoPaciente(in id_paciente INT, IN novo_contacto INT)
+BEGIN
+	UPDATE Paciente
+    SET Telefone = novo_contacto
+    WHERE identificador = id_paciente;
+END &&
+
 -- getPacientes: Devolve todos os pacientes
 
 delimiter &&
@@ -80,6 +104,26 @@ CREATE PROCEDURE adicionaMedico(IN nome_m VARCHAR(100), IN idade_m INT, IN gener
 BEGIN
 	INSERT INTO Medico (nome, idade, genero, morada, telefone, email, idEspecialidade)
     VALUES (nome_m, idade_m, genero_m, morada_m, telefone_m, email_m, especialidade_m); -- Insere o médico na lista. É necessário fornecer todas as informações relativas ao novo médico.
+END &&
+
+-- mudarMoradaMedico: Alterar morada do médico
+
+delimiter &&
+CREATE PROCEDURE mudarMoradaMedico(IN id_medico INT, IN nova_morada VARCHAR(100))
+BEGIN
+	UPDATE Medico
+    SET Morada = nova_morada
+    WHERE identificador = id_medico;
+END &&
+
+-- mudarContactoMedico: Alterar contacto do médico
+
+delimiter &&
+CREATE PROCEDURE mudarContactoMedico(in id_medico INT, IN novo_contacto INT)
+BEGIN
+	UPDATE Medico
+    SET Telefone = novo_contacto
+    WHERE identificador = id_medico;
 END &&
 
 -- getMedicos: Devolve todos os médicos	

@@ -8,11 +8,11 @@ config = {
 }
 
 files = [
+    {'name': 'SeguroSaude.txt', 'table': 'SeguroSaude'},
     {'name': 'Paciente.txt', 'table': 'Paciente'},
     {'name': 'Especialidade.txt', 'table': 'Especialidade'},
     {'name': 'Medico.txt', 'table': 'Medico'},
     {'name': 'Consulta.txt', 'table': 'Consulta'},
-    {'name': 'SeguroSaude.txt', 'table': 'SeguroSaude'},
     {'name': 'Medicamentos.txt', 'table': 'Medicamentos'},
     {'name': 'Exames.txt', 'table': 'Exames'},
     {'name': 'Inventario.txt', 'table': 'Inventario'},
