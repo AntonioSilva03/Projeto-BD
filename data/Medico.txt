@@ -1,0 +1,13 @@
+(1, 'Dr. Smith', 40, 'M', '789 Elm St', 987654321, 'smith@example.com', 1),
+(2, 'Dr. Johnson', 35, 'M', '456 Oak St', 123456789, 'johnson@example.com', 2),
+(3, 'Dr. Davis', 50, 'F', '123 Main St', 555555555, 'davis@example.com', 3),
+(4, 'Dr. Wilson', 45, 'M', '456 Maple Ave', 789456123, 'wilson@example.com', 4),
+(5, 'Dr. Anderson', 38, 'M', '789 Cherry St', 369852147, 'anderson@example.com', 5),
+(6, 'Dr. Garcia', 52, 'M', '123 Oakwood Dr', 654789321, 'garcia@example.com', 6),
+(7, 'Dr. Thompson', 41, 'F', '321 Pine Rd', 741852963, 'thompson@example.com', 7),
+(8, 'Dr. Rodriguez', 37, 'M', '654 Elmwood Ave', 852963741, 'rodriguez@example.com', 8),
+(9, 'Dr. Martinez', 49, 'F', '987 Birch Ln', 258741369, 'martinez@example.com', 9),
+(10, 'Dr. White', 43, 'M', '369 Willow St', 963258741, 'white@example.com', 10),
+(11, 'Dr. Lewis', 39, 'M', '258 Cedar Ave', 147369852, 'lewis@example.com', 11),
+(12, 'Dr. Hernandez', 42, 'F', '456 Oakdale Dr', 963147852, 'hernandez@example.com', 12),
+(13, 'Dr. Clark', 36, 'M', '852 Maplewood Ave', 741963852, 'clark@example.com', 13);

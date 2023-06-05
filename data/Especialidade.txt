@@ -1,0 +1,13 @@
+(1, 'Cardiology'),
+(2, 'Orthopedics'),
+(3, 'Pediatrics'),
+(4, 'Gynecology'),
+(5, 'Dermatology'),
+(6, 'Neurology'),
+(7, 'Ophthalmology'),
+(8, 'Psychiatry'),
+(9, 'Radiology'),
+(10, 'Urology'),
+(11, 'Endocrinology'),
+(12, 'Gastroenterology'),
+(13, 'Hematology');

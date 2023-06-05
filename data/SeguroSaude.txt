@@ -1,0 +1,13 @@
+(1, 'Insurance Co.', '2024-12-31', 80, 1),
+(2, 'Health Insurance Ltd.', '2023-06-30', 75, 2),
+(3, 'Medical Insurance Corp.', '2023-12-31', 90, 3),
+(4, 'ABC Insurance', '2024-12-31', 80.0, 4),
+(5, 'XYZ Health', '2023-09-30', 90.0, 5),
+(6, 'HealthCare Inc.', '2025-06-15', 75.0, 6),
+(7, 'Best Health Plans', '2024-03-31', 85.0, 7),
+(8, 'SecureHealth', '2023-11-30', 95.0, 8),
+(9, 'Global Assurance', '2025-02-28', 70.0, 9),
+(10, 'TotalCare', '2024-07-15', 80.0, 10),
+(11, 'Unity Health', '2023-06-30', 90.0, 11),
+(12, 'Reliable Insurers', '2025-05-31', 75.0, 12),
+(13, 'Wellness Providers', '2024-02-28', 85.0, 13);

@@ -1,0 +1,13 @@
+(1, 'Medical Equipment A'),
+(2, 'Medical Equipment B'),
+(3, 'Medical Equipment C'),
+(4, 'Surgical Tools'),
+(5, 'Bandages'),
+(6, 'Syringes'),
+(7, 'Stethoscope'),
+(8, 'Thermometer'),
+(9, 'X-ray Machine'),
+(10, 'MRI Scanner'),
+(11, 'EKG Machine'),
+(12, 'Ultrasound Device'),
+(13, 'Lab Equipment');
