@@ -19,7 +19,7 @@ DROP PROCEDURE IF EXISTS historicoMedicoPaciente;
 DROP PROCEDURE IF EXISTS numeroConsultasEspecialidade;
 DROP PROCEDURE IF EXISTS medicacaoPaciente;
 DROP PROCEDURE IF EXISTS pacientesExame;
-DROP VIEW consultasFuturas;
+DROP VIEW IF EXISTS consultasFuturas;
 
 -- size: Calcula o tamanho da base de dados.
 
@@ -59,7 +59,7 @@ END &&
 -- adicionaPaciente: Adiciona um paciente
 
 delimiter &&
-CREATE PROCEDURE adicionaPaciente(IN nome_p VARCHAR(100), IN nascimento_p DATE, IN idade_p INT, IN genero_p CHAR, IN morada_p VARCHAR(100), IN telefone_p INT, IN email_p VARCHAR(100), IN emergencia_ INT)
+CREATE PROCEDURE adicionaPaciente(IN nome_p VARCHAR(100), IN nascimento_p DATE, IN idade_p INT, IN genero_p CHAR, IN morada_p VARCHAR(100), IN telefone_p INT, IN email_p VARCHAR(100), IN emergencia_p INT)
 BEGIN
 	DECLARE last_id INT; -- Variavel que vai guardar o id atribuido ao novo paciente.
     
